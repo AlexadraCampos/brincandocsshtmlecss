@@ -1,43 +1,10 @@
-body {
-    animation: rotate-bg-color 10s infinite;
-  }
-  
-  @keyframes rotate-bg-color {
-    0% {
-      background-color: steelblue;
-    }
-    10% {
-      background-color: red;
-    }
-    20% {
-      background-color: orange;
-    }
-    30% {
-      background-color: yellow;
-    }
-    40% {
-      background-color: green;
-    }
-    50% {
-      background-color: blue;
-    }
-    60% {
-      background-color: indigo;
-    }
-    70% {
-      background-color: violet;
-    }
-    80% {
-      background-color: pink;
-    }
-    90% {
-      background-color: brown;
-    }
-    100% {
-      background-color: black;
-    }
-  }
-  
+  /* Transição suave do fundo */
+        body {
+          background-color: #f36e78;
+        }
+
+      
+
 
    /* Tela de entrada */
    #tela-entrada {
@@ -59,6 +26,7 @@ body {
     font-size: 48px;
     font-family: 'Comic Sans MS', cursive;
     text-shadow: 2px 2px 4px #ff69b4;
+    position: relative;
 }
 
 #botao-entrar {
@@ -79,75 +47,110 @@ body {
     transform: scale(1.05);
 }
 
-.balao2{
-  margin: 0 auto; 
-  background: #7e57c2;
-  font-family: 'open sans';
-  font-size: 0.85em;
-  line-height: 1.6em;  
-  border-radius: 15px;
-  width: 80px;
-  height: auto;
-  color: #fff;
-  padding: 20px;
-  position: relative;
-  margin-top: 10px;
-  top: -700px;
-  left: 34%;
+.mensagem {
+            text-align: center;
+            color: white;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 1.2em;
+            margin-top: -80px;
+            max-width: 600px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+        }
+
+      
+        .mensagem2 {
+          position: absolute;
+          top: 450px;
+          left: 100px;
+          color: white;
+          font-family: 'Trebuchet MS', sans-serif;
+          font-size: 1.2em;
+        
+        }
+        
+
+/* seta da ignorancia  */
+.seta {
+
+  animation: pulsar 1s infinite;
 }
-.balao2:after{ /*Triangulo*/
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left: 0px solid transparent;
-  border-right: 30px solid transparent;
-  /*Faz seta "apontar para baixo. Definir o valor como 'top' fará ela "apontar para cima" */
-  /*Aqui entra a cor da "aba" do balão */
-  border-bottom: 10px solid #7e57c2;
-  left: 0%;
-  border-top: 3px ;
-  bottom: -2px;
-  top: auto;
+
+@keyframes pulsar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Vídeo de fundo */
+.silhueta {
+  position: relative;
+  width: 50%; 
+  height: 90%;
+  margin-right: 20px;
+  object-fit: cover;     
+  left: 50%;
+  display: block;      
+  margin-bottom: 50px;      
+
+  
+}
+
+.coelho-mobile {
+  top: 30%;
+  left: 0;
 }
 
 @media (max-width: 768px) {
-
-  /* Ajuste o tamanho da fonte e do botão */
   #tela-entrada h1 {
-    font-size: 24px;
-  }
-  #botao-entrar {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-  
-  /* Ajuste o tamanho das imagens */
-  .menina-mobile {
-    width: 100%;
-    height: 50%;
-    direction: flex;
-    position: absolute;
-    top: 300px; 
-    right: -10px;
-    padding: 40px;
-  }
-  
-  .coelho-mobile {
-    position: absolute;
-    right: 5px;
-  }
-  
-  /* Ajuste a posição do balão */
-  .balao2 {
-    width: 20%;
-    height: auto;
-    direction: flex;
-    position: absolute;
-    top: 190px; 
-    left: 300px;  
-  }
+    font-size: 32px;
   }
 
+  #botao-entrar {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
+
+  .mensagem {
+    font-size: 1em;
+    max-width: 90%;
+  }
+
+  .mensagem2 {
+    position: absolute;
+    top: 350px;
+    left: 20px;
+    font-size: 1em;
+  }
+
+  .silhueta {
+    width: 90%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .coelho-mobile {
+    width: 50%;
+    left: 0;
+    transform: none;
+    margin-bottom: 20px;
+  }
+}
+
+  
+}
+
+
+
+  
 
   

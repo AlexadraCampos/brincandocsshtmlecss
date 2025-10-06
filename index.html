@@ -5,78 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="steam.css">
     <title>Feito por Ally</title>
-    <style>
-        /* Tela de entrada */
-        #tela-entrada {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: pink;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            z-index: 10;
-        }
-
-        #tela-entrada h1 {
-            color: white;
-            font-size: 48px;
-            font-family: 'Comic Sans MS', cursive;
-            text-shadow: 2px 2px 4px #ff69b4;
-        }
-
-        #botao-entrar {
-            background-color: white;
-            color: #ff69b4;
-            border: none;
-            padding: 15px 30px;
-            font-size: 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 2px 2px 10px #ff69b4;
-            transition: 0.3s;
-        }
-
-        #botao-entrar:hover {
-            background-color: #ff69b4;
-            color: white;
-            transform: scale(1.05);
-        }
-    </style>
+    
 </head>
 
 <body>
 
     <!-- 🎀 Tela de entrada fofa -->
     <div id="tela-entrada">
-        <h1>Bem-vindo(a) ao Mundo da Ally 💖</h1>
+        <h1>🌸 A cena vira uma metáfora da sua cura.</h1>
         <button id="botao-entrar">Entrar ✨</button>
     </div>
 
     <!-- 🎶 Música -->
-    <audio id="musica" src="audio/Sweet Tooth.mp3" loop></audio>
+    <audio id="musica" src="audio/Fool's Garden--Lemon Tree • Legendado • [imtpasn5oKY].mp3" loop></audio>
 
-    <!-- 🎥 Conteúdo do site -->
-     <div style="display: flex; justify-content: center;">
-    <img class="menina-mobile" src="video/menina.gif" 
-         alt="Menina dançando" 
-         width="800" 
-         height="800">
+    <!-- 🎥 Conteúdo -->
+    <div>
 
-         <img class="coelho-mobile" src="video/dancing-rabbit.gif" 
-         alt="Menina dançando" 
-         width="500" 
-         height="500" 
-         style="margin-right: 20px;">
-        </div>
-        <div class="balao2">
-          Mentira, não tem nada aqui!
-        </div>
+        <div class="mensagem2">
+            <p>As sombras mostram o que superamos,<br>
+                não o que somos Sr.Azedo. 🍋🕊️</p>
+        <div class="seta">⬇</div>
+    </div>
 
+
+    </div>
+        <img class="silhueta" autoplay loop muted playsinline 
+        src="video/From-KlickPin-CF-Pin-on--unscreen.gif" alt="GIF animado">  
     
+    <div> 
+
+        <img class="coelho-mobile" src="video/dancing-rabbit.gif" 
+             alt="Coelho dançando" 
+             width="500" 
+             height="500" 
+             style="margin-right: 20px;">
+    </div>
+
+    <div class="mensagem">
+        <p> "Eu escolho a leveza, mesmo depois da dor.<br>
+        A ironia e o rancor ficam onde nasceram.</p>
+        <p>Que o silêncio seja a minha resposta,<br>
+        e a calma, o meu escudo.😉" </p>
+    </div>
+
     <!-- 🎯 Script -->
     <script>
         const botao = document.getElementById('botao-entrar');
@@ -84,8 +56,8 @@
         const musica = document.getElementById('musica');
 
         botao.addEventListener('click', () => {
-            tela.style.display = 'none'; // Esconde a telinha fofa
-            musica.play(); // Começa a música
+            tela.style.display = 'none';
+            musica.play();
         });
     </script>
 
