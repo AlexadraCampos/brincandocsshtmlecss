@@ -52,7 +52,7 @@
             color: white;
             font-family: 'Trebuchet MS', sans-serif;
             font-size: 1.2em;
-            margin-top: -80px;
+            margin-top: -800px;
             max-width: 600px;
             line-height: 1.6;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
@@ -92,7 +92,7 @@
 .silhueta {
   position: relative;
   width: 50%; 
-  height: 90%;
+  height: 80%;
   margin-right: 20px;
   object-fit: cover;     
   left: 50%;
@@ -103,48 +103,53 @@
 }
 
 .coelho-mobile {
-  top: 30%;
-  left: 0;
+  width: 50%;
+  position: relative;
+  right: 22%;
+ 
 }
 
 @media (max-width: 768px) {
+  
   #tela-entrada h1 {
     font-size: 32px;
   }
 
   #botao-entrar {
-    padding: 12px 25px;
     font-size: 18px;
+    padding: 12px 25px;
   }
 
-  .mensagem {
+  .mensagem, .mensagem2 {
     font-size: 1em;
     max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    top: 0;
+    margin-top: 15px;
   }
 
-  .mensagem2 {
-    position: absolute;
-    top: 350px;
-    left: 20px;
-    font-size: 1em;
-  }
-
-  .silhueta {
+  .silhueta{
     width: 50%;
     height: auto;
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
-    margin-right: 0;
     margin-bottom: 20px;
-  }
-
+  } 
+  
   .coelho-mobile {
-    width: 50%;
-    left: 0;
-    transform: none;
+    width: 80%;
+    height: auto;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
     margin-bottom: 20px;
   }
 }
+
+
 
   
 
