@@ -107,70 +107,45 @@
   left: 0;
 }
 
-
-/* Responsividade */
-@media (max-width: 1024px) {
-    #tela-entrada h1 {
-        font-size: 40px;
-    }
-
-    #botao-entrar {
-        padding: 14px 28px;
-        font-size: 19px;
-    }
-
-    .mensagem, .mensagem2 {
-        font-size: 1.1em;
-        max-width: 90%;
-        margin-top: 15px;
-    }
-
-    .silhueta, .coelho-mobile {
-        width: 70%;
-    }
-
-    
-  .silhueta{
-    left: 0%;
+@media (max-width: 768px) {
+  #tela-entrada h1 {
+    font-size: 32px;
   }
 
-    #tela-entrada h1 {
-        font-size: 32px;
-    }
+  #botao-entrar {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
 
-    #botao-entrar {
-        padding: 12px 25px;
-        font-size: 18px;
-    }
+  .mensagem {
+    font-size: 1em;
+    max-width: 90%;
+  }
 
-    .mensagem, .mensagem2 {
-        font-size: 1em;
-        max-width: 95%;
-        margin-top: 10px;
-    }
+  .mensagem2 {
+    position: absolute;
+    top: 350px;
+    left: 20px;
+    font-size: 1em;
+  }
 
-    .silhueta, .coelho-mobile {
-        width: 90%;
-    }
+  .silhueta {
+    width: 50%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 
-
-    #tela-entrada h1 {
-        font-size: 28px;
-    }
-
-    #botao-entrar {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    .mensagem, .mensagem2 {
-        font-size: 0.9em;
-    }
-
-    .silhueta, .coelho-mobile {
-        width: 100%;
-    }
+  .coelho-mobile {
+    width: 50%;
+    left: 0;
+    transform: none;
+    margin-bottom: 20px;
+  }
 }
+
   
 
 
