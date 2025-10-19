@@ -1,62 +1,190 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="steam.css">
-    <title>Feito por Ally</title>
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/steam.css" />
+  <title>Feito por Ally</title>
 </head>
 
 <body>
+  <!-- 🎶 Música -->
+  <audio id="musica" src="./audio/Michael FK & Andy Leech - Falling Apart [qtNSLNUd1VE].mp3" loop autoplay></audio>
 
-    <!-- 🎀 Tela de entrada fofa -->
-    <div id="tela-entrada">
-        <h1>🌸 A cena vira uma metáfora da sua cura.</h1>
-        <button id="botao-entrar">Entrar ✨</button>
+  
+  <!-- 🎥 Conteúdo -->
+  <div class="slider">
+    <div class="items-group">
+      <div class="item">
+        <div class="block">
+          <span class="circleLight"></span>
+          <div class="text">
+            <h2>Ei</h2>
+            <p>Perdido Forasteiro?
+              Bem, Seja bem vindo ao meu mundo! Ele não é colorido.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="block">
+          <span class="circleLight"></span>
+          <div class="text">
+            <p>Gostou Forasteiro?</p>
+            <p>Ainda aqui? Se gostou fica a vontade, caso não percebeu sou uma programadora, 
+              acho interessantes pessoas curiosas.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="block">
+          <span class="circleLight"></span>
+          <div class="text">
+            <h2>Ora</h2>
+            <p>Chegou ate aqui? Está curiso(a)? </p>
+            <p>Assim fico sem graça 😳, E alguém que me conhece? futricando assim...
+             brincadeira heheeh to so pegando no seu pé!
+            </p>  
+        </div>
+      </div>
+
     </div>
 
-    <!-- 🎶 Música -->
-    <audio id="musica" src="audio/We're Not Gonna Take It [PqQdbevaB-Q].mp3" loop></audio>
-
-    <!-- 🎥 Conteúdo -->
-    <div>
-
-        <div class="mensagem2">
-            <p>As sombras mostram o que superamos,<br>
-                não o que somos Sr.Azedo. 🍋🕊️</p>
-        <div class="seta">⬇</div>
+    <div class="navigations">
+      <ul class="dots"></ul>
     </div>
+  </div>
 
+  <!-- 🎯 Script -->
+<script src="./js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    var quantity = 18;
+    for (var i = 1; i <= quantity; i++) {
+      var firefly = document.createElement('div');
+      firefly.className = 'firefly';
 
-    </div>
-        <img class="silhueta" autoplay loop muted playsinline 
-        src="video/From-KlickPin-CF-Pin-on--unscreen.gif" alt="GIF animado">  
-    
-    <div> 
+      // Adicionar estilos aleatórios
+      firefly.style.top = Math.random() * 100 + '%';
+      firefly.style.left = Math.random() * 100 + '%';
+      firefly.style.animationDuration = Math.random() * 10 + 5 + 's';
+      firefly.style.animationDelay = Math.random() * 10 + 's';
 
-        <img class="coelho-mobile" src="video/dancing-rabbit.gif" 
-             alt="Coelho dançando">
-    </div>
+      // Criar keyframes dinâmicas
+      var keyframeName = 'move' + i;
+      var style = document.createElement('style');
+      style.innerHTML = `
+    @keyframes ${keyframeName} {
+      0% {
+        transform: translateX(${Math.random() * 100 - 50}px) translateY(${Math.random() * 100 - 50}px) scale(${Math.random() * 0.5 + 0.5});
+      }
+      100% {
+        transform: translateX(${Math.random() * 100 - 50}px) translateY(${Math.random() * 100 - 50}px) scale(${Math.random() * 0.5 + 0.5});
+      }
+    }
+  `;
+      document.head.appendChild(style);
 
-    <div class="mensagem">
-        <p> "Eu escolho a leveza, mesmo depois da dor.<br>
-        A ironia e o rancor ficam onde nasceram.</p>
-        <p>Que o silêncio seja a minha resposta,<br>
-        e a calma, o meu escudo.😉" </p>
-    </div>
+      // Aplicar keyframes ao elemento
+      firefly.style.animationName = keyframeName;
 
-    <!-- 🎯 Script -->
-    <script>
-        const botao = document.getElementById('botao-entrar');
-        const tela = document.getElementById('tela-entrada');
-        const musica = document.getElementById('musica');
+      document.body.appendChild(firefly);
+    }
+  
+    var mouse = {
+      X: 0,
+      Y: 0,
+      CX: 0,
+      CY: 0,
+    },
+      block = {
+        X: mouse.X,
+        Y: mouse.Y,
+        CX: mouse.CX,
+        CY: mouse.CY,
+      },
+      imags = [
+        "https://i.pinimg.com/originals/44/6e/3b/446e3b79395a287ca32f7977dd83b290.jpg"];
 
-        botao.addEventListener('click', () => {
-            tela.style.display = 'none';
-            musica.play();
-        });
-    </script>
+    $(".block").on("mousemove", function (e) {
+      mouse.X = e.pageX - $(this).offset().left - $(".block").width() / 2;
+      mouse.Y = e.pageY - $(this).offset().top - $(".block").height() / 2;
+    });
+
+    $(".block").on("mouseleave", function (e) {
+      mouse.X = mouse.CX;
+      mouse.Y = mouse.CY;
+    });
+
+    setInterval(function () {
+      block.CY += (mouse.Y - block.CY) / 12;
+      block.CX += (mouse.X - block.CX) / 12;
+
+      $(".block .circleLight").css(
+        "background",
+        "radial-gradient(circle at " +
+        mouse.X +
+        "px " +
+        mouse.Y +
+        "px, #fff, transparent)"
+      );
+      $(".block").css({
+        transform:
+          "scale(1.03) translate(" +
+          block.CX * 0.05 +
+          "px, " +
+          block.CY * 0.05 +
+          "px) rotateX(" +
+          block.CY * 0.05 +
+          "deg) rotateY(" +
+          block.CX * 0.05 +
+          "deg)",
+      });
+    }, 20);
+
+    $(".slider .item").each(function (i) {
+      if (i == 0) {
+        $(this).addClass("active");
+        $(this).next().addClass("next");
+        $(this).prev().addClass("prev");
+      }
+
+      $(this).attr("id", "slide-" + i);
+
+      $(this).prepend(
+        $("<div>", {
+          class: "blur",
+          style: "background-image: url(" + imags[0] + ");",
+        }),
+        $("<div>", {
+          class: "bg",
+          style: "background-image: url(" + imags[0] + ");",
+        })
+      );
+      $(this).find(".block").css("background-image", "url(" + imags[0] + ")");
+
+      $(".navigations .dots").append(
+        $("<li>", { class: i == 0 ? "active" : "", id: i }).on(
+          "click",
+          function () {
+            var cSlide = $(".slider #slide-" + $(this).attr("id"));
+
+            $(".navigations .dots li").removeClass("active");
+            $(this).addClass("active");
+
+            $(".slider .item").removeClass("active prev next");
+            cSlide.addClass("active");
+            cSlide.next().addClass("next");
+            cSlide.prev().addClass("prev");
+          }
+        )
+      );
+    });
+  </script>
+  
 
 </body>
+
 </html>
