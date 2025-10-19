@@ -1,5 +1,3 @@
-
-// função simples para extrair navegador e sistema do userAgent
 function parseUserAgent(ua) {
   ua = ua || navigator.userAgent;
   const info = { browser: 'Desconhecido', os: 'Desconhecido', device: 'Desconhecido' };
@@ -20,14 +18,14 @@ function parseUserAgent(ua) {
   return info;
 }
 
-// obtenha o nome (ou deixe vazio) — adicione um campo <input id="name"> no seu formulário
+// obtenha o nome (ou deixe vazio)
 const name = (document.getElementById('name') && document.getElementById('name').value) || 'anônimo';
 
 // parse do userAgent
 const uaInfo = parseUserAgent(navigator.userAgent);
 
 // formate a hora para America/Sao_Paulo
-const utcDate = new Date(); // ou use a data que queira converter
+const utcDate = new Date(); 
 const localString = utcDate.toLocaleString('pt-BR', {
   timeZone: 'America/Sao_Paulo',
   year: 'numeric',
@@ -39,19 +37,17 @@ const localString = utcDate.toLocaleString('pt-BR', {
   hour12: false
 });
 
-// enviar para Formspree
-fetch("https://formspree.io/f/xrbydqrw", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    visitor_id: Math.random().toString(36).substring(2, 8),
-    name: name,
-    user_agent: navigator.userAgent,
-    browser: uaInfo.browser,
-    os: uaInfo.os,
-    device: uaInfo.device,
-    language: navigator.language,
-    timestamp_utc: new Date().toISOString(),
-    timestamp_sao_paulo: localString
-  })
+const visitor_id = Math.random().toString(36).substring(2, 8);
+
+// envia evento personalizado para o Google Analytics
+gtag('event', 'visit', {
+  visitor_id: visitor_id,
+  name: name,
+  user_agent: navigator.userAgent,
+  browser: uaInfo.browser,
+  os: uaInfo.os,
+  device: uaInfo.device,
+  language: navigator.language,
+  timestamp_utc: new Date().toISOString(),
+  timestamp_sao_paulo: localString
 });
